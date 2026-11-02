@@ -1,0 +1,12 @@
+{"consulta": "X nombre \"Zuri\"", "soluciones": [{"X": "zuri"}]}
+{"consulta": "X nombre \"Caterina\"", "soluciones": [{"X": "caterina"}]}
+{"consulta": "dormitorio_paola nombre N", "soluciones": [{"N": "\"Dormitorio de Paola\""}]}
+{"consulta": "X es_un dormitorio, X tiene_balcon B", "soluciones": [{"X": "dormitorio_lautaro", "B": "balcon_lautaro"}, {"X": "dormitorio_paola", "B": "balcon_paola"}]}
+{"consulta": "P duerme_en D, D esta_en_planta planta_segunda", "soluciones": [{"P": "caterina", "D": "dormitorio_caterina"}, {"P": "lautaro", "D": "dormitorio_lautaro"}, {"P": "paola", "D": "dormitorio_paola"}]}
+{"consulta": "M mascota_de ramon, M es_un perro, M nombre N", "soluciones": [{"M": "bobby", "N": "\"Bobby\""}]}
+{"consulta": "O esta_en salon, O es_un electrodomestico, O nombre N", "soluciones": [{"O": "television", "N": "\"Televisión del salón\""}]}
+{"consulta": "A se_hace_en cocina", "soluciones": [{"A": "cocinar"}, {"A": "comer"}]}
+{"consulta": "P puede_hacer jugar_basket, P nombre N", "soluciones": [{"P": "lautaro", "N": "\"Lautaro\""}]}
+{"consulta": "X hijo_de paola, X nombre N", "soluciones": [{"X": "lautaro", "N": "\"Lautaro\""}]}
+{"consulta": "paola madre_de lautaro", "soluciones": [{}]}
+{"consulta": "X vive_en casa, X es_un gato", "soluciones": []}
