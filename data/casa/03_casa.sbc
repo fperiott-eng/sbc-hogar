@@ -18,3 +18,9 @@ estudio esta_en_planta planta_baja.
 buhardilla esta_en_planta planta_baja.
 sala_juegos esta_en_planta planta_baja.
 habitacion_invitados esta_en_planta planta_baja.
+
+# --- Habitaciones de la planta primera ---
+cocina esta_en_planta planta_primera.
+salon esta_en_planta planta_primera.
+bano_primera esta_en_planta planta_primera.
+sala_tv esta_en_planta planta_primera.

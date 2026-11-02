@@ -42,3 +42,14 @@ estudio es_un estudio.
 buhardilla es_un buhardilla.
 sala_juegos es_un sala.
 habitacion_invitados es_un dormitorio.
+
+# --- Habitaciones de la planta primera ---
+cocina es_un habitacion.
+salon es_un habitacion.
+bano_primera es_un habitacion.
+sala_tv es_un habitacion.
+
+cocina es_un cocina.
+salon es_un salon.
+bano_primera es_un baño.
+sala_tv es_un sala.
