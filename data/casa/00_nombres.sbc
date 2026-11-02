@@ -5,3 +5,14 @@
 lautaro nombre "Lautaro".
 paola nombre "Paola".
 caterina nombre "Caterina".
+
+# --- Familia materna (no vive en la casa) ---
+rosa nombre "Rosa".
+jorge nombre "Jorge".
+marta nombre "Marta".
+diego nombre "Diego".
+
+# --- Amigos ---
+hugo nombre "Hugo".
+nico nombre "Nico".
+lucia nombre "Lucía".

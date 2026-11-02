@@ -11,3 +11,35 @@ caterina hija_de paola.
 # Lautaro y Caterina son hermanos.
 lautaro hermano_de caterina.
 caterina hermana_de lautaro.
+
+# --- Abuelos maternos: los padres de Paola ---
+rosa madre_de paola.
+jorge padre_de paola.
+rosa conyuge_de jorge.
+jorge conyuge_de rosa.
+rosa abuela_de lautaro.
+rosa abuela_de caterina.
+jorge abuelo_de lautaro.
+jorge abuelo_de caterina.
+
+# --- Tía materna (Marta) y primo (Diego) ---
+rosa madre_de marta.
+jorge padre_de marta.
+marta hermana_de paola.
+paola hermana_de marta.
+marta tia_de lautaro.
+marta tia_de caterina.
+marta madre_de diego.
+diego hijo_de marta.
+diego primo_de lautaro.
+lautaro primo_de diego.
+diego primo_de caterina.
+caterina prima_de diego.
+
+# --- Amigos ---
+lautaro amigo_de hugo.
+hugo amigo_de lautaro.
+lautaro amigo_de nico.
+nico amigo_de lautaro.
+caterina amiga_de lucia.
+lucia amiga_de caterina.
