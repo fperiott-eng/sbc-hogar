@@ -1,0 +1,25 @@
+# Consultas de ejemplo sobre la casa de Lautaro.
+
+# Literales: buscar por el nombre legible.
+X nombre "Zuri"?
+X nombre "Caterina"?
+
+# Literales en las respuestas.
+dormitorio_paola nombre N?
+
+# Varios hechos encadenados (joins).
+X es_un dormitorio, X tiene_balcon B?
+P duerme_en D, D esta_en_planta planta_segunda?
+M mascota_de ramon, M es_un perro, M nombre N?
+O esta_en salon, O es_un electrodomestico, O nombre N?
+A se_hace_en cocina?
+P puede_hacer jugar_basket, P nombre N?
+
+# Familia.
+X hijo_de paola, X nombre N?
+
+# Pregunta de sí/no (sin variables).
+paola madre_de lautaro?
+
+# Consulta sin solución: ningún gato vive en la casa de Lautaro.
+X vive_en casa, X es_un gato?
