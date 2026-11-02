@@ -1,0 +1,7 @@
+# Casa de Lautaro: nombre legible de cada identificador de la base.
+# El predicado "nombre" solo se usa para mostrar y consultar, no para inferir.
+
+# --- Personas que viven en la casa ---
+lautaro nombre "Lautaro".
+paola nombre "Paola".
+caterina nombre "Caterina".

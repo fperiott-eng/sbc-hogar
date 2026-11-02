@@ -1,0 +1,13 @@
+# Casa de Lautaro: relaciones familiares (solo la rama materna).
+
+# Paola es la madre de Lautaro y de Caterina.
+paola madre_de lautaro.
+paola madre_de caterina.
+
+# Lautaro y Caterina son sus hijos.
+lautaro hijo_de paola.
+caterina hija_de paola.
+
+# Lautaro y Caterina son hermanos.
+lautaro hermano_de caterina.
+caterina hermana_de lautaro.

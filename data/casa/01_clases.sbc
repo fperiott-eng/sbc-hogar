@@ -1,0 +1,10 @@
+# Casa de Lautaro: clase de cada cosa (es_un) y sexo de las personas.
+
+# --- Personas ---
+lautaro es_un persona.
+paola es_un persona.
+caterina es_un persona.
+
+lautaro sexo masculino.
+paola sexo femenino.
+caterina sexo femenino.
