@@ -29,3 +29,16 @@ casa es_un vivienda.
 planta_baja es_un planta.
 planta_primera es_un planta.
 planta_segunda es_un planta.
+
+# --- Habitaciones de la planta baja ---
+salon_bajo es_un habitacion.
+estudio es_un habitacion.
+buhardilla es_un habitacion.
+sala_juegos es_un habitacion.
+habitacion_invitados es_un habitacion.
+
+salon_bajo es_un salon.
+estudio es_un estudio.
+buhardilla es_un buhardilla.
+sala_juegos es_un sala.
+habitacion_invitados es_un dormitorio.

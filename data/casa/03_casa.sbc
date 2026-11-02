@@ -11,3 +11,10 @@ planta_segunda esta_en casa.
 # La primera está encima de la baja, y la segunda encima de la primera.
 planta_primera encima_de planta_baja.
 planta_segunda encima_de planta_primera.
+
+# --- Habitaciones de la planta baja ---
+salon_bajo esta_en_planta planta_baja.
+estudio esta_en_planta planta_baja.
+buhardilla esta_en_planta planta_baja.
+sala_juegos esta_en_planta planta_baja.
+habitacion_invitados esta_en_planta planta_baja.

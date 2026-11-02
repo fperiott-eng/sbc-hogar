@@ -22,3 +22,10 @@ casa nombre "Casa de Lautaro".
 planta_baja nombre "Planta baja".
 planta_primera nombre "Planta primera".
 planta_segunda nombre "Planta segunda".
+
+# --- Habitaciones de la planta baja ---
+salon_bajo nombre "Salón de la planta baja".
+estudio nombre "Estudio".
+buhardilla nombre "Buhardilla".
+sala_juegos nombre "Sala de juegos".
+habitacion_invitados nombre "Habitación de invitados".
