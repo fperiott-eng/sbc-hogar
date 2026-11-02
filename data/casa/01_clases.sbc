@@ -126,3 +126,14 @@ fregadero es_un objeto.
 futbolin es_un objeto.
 cajas es_un objeto.
 maletas es_un objeto.
+
+# --- Acciones ---
+cocinar es_un accion.
+comer es_un accion.
+dormir es_un accion.
+estudiar es_un accion.
+ver_tele es_un accion.
+jugar es_un accion.
+jugar_basket es_un accion.
+hacer_barbacoa es_un accion.
+ducharse es_un accion.

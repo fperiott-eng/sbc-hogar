@@ -1,0 +1,26 @@
+# Casa de Lautaro: qué se hace en cada sitio y qué puede hacer cada persona.
+
+# --- Dónde se hace cada cosa (se_hace_en) ---
+cocinar se_hace_en cocina.
+comer se_hace_en cocina.
+dormir se_hace_en dormitorio_lautaro.
+dormir se_hace_en dormitorio_paola.
+dormir se_hace_en dormitorio_caterina.
+estudiar se_hace_en estudio.
+ver_tele se_hace_en salon.
+ver_tele se_hace_en sala_tv.
+jugar se_hace_en sala_juegos.
+jugar_basket se_hace_en patio_trasero.
+hacer_barbacoa se_hace_en patio_trasero.
+ducharse se_hace_en bano_paola.
+ducharse se_hace_en bano_compartido.
+ducharse se_hace_en bano_primera.
+
+# --- Qué puede hacer cada persona (puede_hacer) ---
+lautaro puede_hacer estudiar.
+lautaro puede_hacer jugar_basket.
+lautaro puede_hacer jugar.
+paola puede_hacer cocinar.
+paola puede_hacer hacer_barbacoa.
+caterina puede_hacer estudiar.
+caterina puede_hacer ver_tele.
