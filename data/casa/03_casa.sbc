@@ -1,0 +1,13 @@
+# Casa de Lautaro: la vivienda y sus tres plantas.
+
+casa tiene_planta planta_baja.
+casa tiene_planta planta_primera.
+casa tiene_planta planta_segunda.
+
+planta_baja esta_en casa.
+planta_primera esta_en casa.
+planta_segunda esta_en casa.
+
+# La primera está encima de la baja, y la segunda encima de la primera.
+planta_primera encima_de planta_baja.
+planta_segunda encima_de planta_primera.

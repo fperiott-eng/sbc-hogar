@@ -23,3 +23,9 @@ diego sexo masculino.
 hugo sexo masculino.
 nico sexo masculino.
 lucia sexo femenino.
+
+# --- La casa y sus plantas ---
+casa es_un vivienda.
+planta_baja es_un planta.
+planta_primera es_un planta.
+planta_segunda es_un planta.

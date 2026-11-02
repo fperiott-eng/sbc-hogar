@@ -16,3 +16,9 @@ diego nombre "Diego".
 hugo nombre "Hugo".
 nico nombre "Nico".
 lucia nombre "Lucía".
+
+# --- La casa y sus plantas ---
+casa nombre "Casa de Lautaro".
+planta_baja nombre "Planta baja".
+planta_primera nombre "Planta primera".
+planta_segunda nombre "Planta segunda".
