@@ -53,3 +53,19 @@ cocina es_un cocina.
 salon es_un salon.
 bano_primera es_un baño.
 sala_tv es_un sala.
+
+# --- Habitaciones de la planta segunda ---
+dormitorio_lautaro es_un habitacion.
+dormitorio_paola es_un habitacion.
+dormitorio_caterina es_un habitacion.
+bano_paola es_un habitacion.
+bano_compartido es_un habitacion.
+
+dormitorio_lautaro es_un dormitorio.
+dormitorio_paola es_un dormitorio.
+dormitorio_caterina es_un dormitorio.
+bano_paola es_un baño.
+bano_compartido es_un baño.
+
+balcon_lautaro es_un balcon.
+balcon_paola es_un balcon.

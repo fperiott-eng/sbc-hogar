@@ -24,3 +24,21 @@ cocina esta_en_planta planta_primera.
 salon esta_en_planta planta_primera.
 bano_primera esta_en_planta planta_primera.
 sala_tv esta_en_planta planta_primera.
+
+# --- Habitaciones de la planta segunda (zona de dormir) ---
+dormitorio_lautaro esta_en_planta planta_segunda.
+dormitorio_paola esta_en_planta planta_segunda.
+dormitorio_caterina esta_en_planta planta_segunda.
+bano_paola esta_en_planta planta_segunda.
+bano_compartido esta_en_planta planta_segunda.
+
+# Los dormitorios de Lautaro y de Paola tienen balcón.
+dormitorio_lautaro tiene_balcon balcon_lautaro.
+balcon_lautaro esta_en dormitorio_lautaro.
+dormitorio_paola tiene_balcon balcon_paola.
+balcon_paola esta_en dormitorio_paola.
+
+# El baño de Paola es privado; el otro lo comparten Lautaro y Caterina.
+bano_paola privado_de paola.
+bano_compartido compartido_por lautaro.
+bano_compartido compartido_por caterina.

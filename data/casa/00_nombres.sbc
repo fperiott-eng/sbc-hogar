@@ -35,3 +35,12 @@ cocina nombre "Cocina".
 salon nombre "Salón".
 bano_primera nombre "Baño de la planta primera".
 sala_tv nombre "Sala de la tele".
+
+# --- Habitaciones de la planta segunda ---
+dormitorio_lautaro nombre "Dormitorio de Lautaro".
+dormitorio_paola nombre "Dormitorio de Paola".
+dormitorio_caterina nombre "Dormitorio de Caterina".
+bano_paola nombre "Baño de Paola".
+bano_compartido nombre "Baño compartido".
+balcon_lautaro nombre "Balcón de Lautaro".
+balcon_paola nombre "Balcón de Paola".
