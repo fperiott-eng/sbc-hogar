@@ -58,3 +58,30 @@ gato_gris nombre "Gato gris".
 gato_blanco nombre "Gato blanco".
 bobby nombre "Bobby".
 casa_vecino nombre "Casa del vecino".
+
+# --- Objetos ---
+nevera nombre "Nevera".
+horno nombre "Horno".
+fregadero nombre "Fregadero".
+mesa_cocina nombre "Mesa de la cocina".
+sofa nombre "Sofá".
+television nombre "Televisión del salón".
+mesa_centro nombre "Mesa de centro".
+estanteria nombre "Estantería".
+escritorio nombre "Escritorio".
+ordenador nombre "Ordenador".
+silla_estudio nombre "Silla del estudio".
+cama_lautaro nombre "Cama de Lautaro".
+armario_lautaro nombre "Armario de Lautaro".
+cama_paola nombre "Cama de Paola".
+armario_paola nombre "Armario de Paola".
+cama_caterina nombre "Cama de Caterina".
+armario_caterina nombre "Armario de Caterina".
+consola nombre "Consola".
+futbolin nombre "Futbolín".
+televisor nombre "Televisor de la sala de la tele".
+puf nombre "Puf".
+cajas nombre "Cajas".
+maletas nombre "Maletas".
+mesa_jardin nombre "Mesa de jardín".
+banco nombre "Banco".

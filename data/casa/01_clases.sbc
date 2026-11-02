@@ -95,3 +95,34 @@ zuri es_un animal.
 bobby es_un animal.
 gato_gris es_un animal.
 gato_blanco es_un animal.
+
+# --- Objetos: muebles ---
+sofa es_un mueble.
+mesa_centro es_un mueble.
+mesa_cocina es_un mueble.
+estanteria es_un mueble.
+escritorio es_un mueble.
+silla_estudio es_un mueble.
+cama_lautaro es_un mueble.
+armario_lautaro es_un mueble.
+cama_paola es_un mueble.
+armario_paola es_un mueble.
+cama_caterina es_un mueble.
+armario_caterina es_un mueble.
+mesa_jardin es_un mueble.
+banco es_un mueble.
+puf es_un mueble.
+
+# --- Objetos: electrodomésticos ---
+nevera es_un electrodomestico.
+horno es_un electrodomestico.
+television es_un electrodomestico.
+televisor es_un electrodomestico.
+ordenador es_un electrodomestico.
+consola es_un electrodomestico.
+
+# --- Otros objetos ---
+fregadero es_un objeto.
+futbolin es_un objeto.
+cajas es_un objeto.
+maletas es_un objeto.

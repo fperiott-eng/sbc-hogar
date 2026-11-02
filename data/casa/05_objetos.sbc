@@ -1,0 +1,49 @@
+# Casa de Lautaro: objetos de la casa y en qué habitación están.
+
+# --- Cocina ---
+nevera esta_en cocina.
+horno esta_en cocina.
+fregadero esta_en cocina.
+mesa_cocina esta_en cocina.
+
+# --- Salón ---
+sofa esta_en salon.
+television esta_en salon.
+mesa_centro esta_en salon.
+estanteria esta_en salon.
+
+# --- Estudio ---
+escritorio esta_en estudio.
+ordenador esta_en estudio.
+silla_estudio esta_en estudio.
+
+# --- Dormitorios ---
+cama_lautaro esta_en dormitorio_lautaro.
+armario_lautaro esta_en dormitorio_lautaro.
+cama_paola esta_en dormitorio_paola.
+armario_paola esta_en dormitorio_paola.
+cama_caterina esta_en dormitorio_caterina.
+armario_caterina esta_en dormitorio_caterina.
+
+# --- Salas y buhardilla ---
+consola esta_en sala_juegos.
+futbolin esta_en sala_juegos.
+televisor esta_en sala_tv.
+puf esta_en sala_tv.
+cajas esta_en buhardilla.
+maletas esta_en buhardilla.
+
+# --- Patios ---
+mesa_jardin esta_en patio_trasero.
+banco esta_en patio_delantero.
+
+# --- Colores y materiales de algunos objetos ---
+sofa es_de_color gris.
+sofa es_de_material tela.
+nevera es_de_color blanco.
+mesa_centro es_de_material madera.
+mesa_cocina es_de_material madera.
+armario_lautaro es_de_color blanco.
+cama_lautaro es_de_material madera.
+puf es_de_color verde.
+mesa_jardin es_de_material madera.
