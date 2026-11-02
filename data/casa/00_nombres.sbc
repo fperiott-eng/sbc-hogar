@@ -96,3 +96,6 @@ jugar nombre "Jugar".
 jugar_basket nombre "Jugar al básket".
 hacer_barbacoa nombre "Hacer barbacoa".
 ducharse nombre "Ducharse".
+
+# --- Otros ---
+pared_trasera nombre "Pared trasera".

@@ -1,0 +1,21 @@
+# Casa de Lautaro: hechos adicionales y curiosidades del día a día.
+
+# Zuri es muy de la familia: duerme en el salón de la planta baja.
+zuri duerme_en salon_bajo.
+
+# Lautaro juega con Zuri y entrena al básket en el patio de atrás.
+lautaro juega_con zuri.
+lautaro entrena_en patio_trasero.
+
+# La canasta está pegada a la pared trasera de la casa.
+canasta pegada_a pared_trasera.
+
+# Paola cuida de Zuri y Caterina estudia en el estudio.
+paola cuida_a zuri.
+caterina estudia_en estudio.
+
+# Zuri y Bobby, el perro del vecino, son amigos; el gato gris se pasa
+# por el patio de delante.
+zuri amigo_de bobby.
+bobby amigo_de zuri.
+gato_gris visita patio_delantero.

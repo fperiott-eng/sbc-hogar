@@ -137,3 +137,6 @@ jugar es_un accion.
 jugar_basket es_un accion.
 hacer_barbacoa es_un accion.
 ducharse es_un accion.
+
+# --- Otros ---
+pared_trasera es_un objeto.
