@@ -44,3 +44,9 @@ bano_paola nombre "Baño de Paola".
 bano_compartido nombre "Baño compartido".
 balcon_lautaro nombre "Balcón de Lautaro".
 balcon_paola nombre "Balcón de Paola".
+
+# --- Exterior ---
+patio_delantero nombre "Patio delantero".
+patio_trasero nombre "Patio trasero".
+barbacoa nombre "Barbacoa".
+canasta nombre "Canasta de básket".

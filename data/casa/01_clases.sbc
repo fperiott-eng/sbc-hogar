@@ -69,3 +69,9 @@ bano_compartido es_un baño.
 
 balcon_lautaro es_un balcon.
 balcon_paola es_un balcon.
+
+# --- Exterior ---
+patio_delantero es_un patio.
+patio_trasero es_un patio.
+barbacoa es_un objeto.
+canasta es_un objeto.

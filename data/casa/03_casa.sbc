@@ -42,3 +42,13 @@ balcon_paola esta_en dormitorio_paola.
 bano_paola privado_de paola.
 bano_compartido compartido_por lautaro.
 bano_compartido compartido_por caterina.
+
+# --- Exterior: patios ---
+casa tiene_patio patio_delantero.
+casa tiene_patio patio_trasero.
+patio_delantero esta_en casa.
+patio_trasero esta_en casa.
+
+# En el patio trasero hay una barbacoa y una canasta de básket.
+barbacoa esta_en patio_trasero.
+canasta esta_en patio_trasero.
