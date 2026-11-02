@@ -50,3 +50,11 @@ patio_delantero nombre "Patio delantero".
 patio_trasero nombre "Patio trasero".
 barbacoa nombre "Barbacoa".
 canasta nombre "Canasta de básket".
+
+# --- Mascotas y vecino ---
+zuri nombre "Zuri".
+ramon nombre "Ramón".
+gato_gris nombre "Gato gris".
+gato_blanco nombre "Gato blanco".
+bobby nombre "Bobby".
+casa_vecino nombre "Casa del vecino".

@@ -75,3 +75,23 @@ patio_delantero es_un patio.
 patio_trasero es_un patio.
 barbacoa es_un objeto.
 canasta es_un objeto.
+
+# --- Mascotas y vecino ---
+ramon es_un persona.
+ramon sexo masculino.
+casa_vecino es_un vivienda.
+
+zuri es_un perro.
+bobby es_un perro.
+gato_gris es_un gato.
+gato_blanco es_un gato.
+
+zuri es_un mascota.
+bobby es_un mascota.
+gato_gris es_un mascota.
+gato_blanco es_un mascota.
+
+zuri es_un animal.
+bobby es_un animal.
+gato_gris es_un animal.
+gato_blanco es_un animal.

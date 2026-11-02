@@ -1,0 +1,27 @@
+# Casa de Lautaro: quién vive aquí, dónde duerme y qué baño usa.
+
+# Viven en la casa Lautaro, Paola, Caterina y el perro Zuri.
+lautaro vive_en casa.
+paola vive_en casa.
+caterina vive_en casa.
+zuri vive_en casa.
+
+# Cada uno duerme en su dormitorio.
+lautaro duerme_en dormitorio_lautaro.
+paola duerme_en dormitorio_paola.
+caterina duerme_en dormitorio_caterina.
+
+# Paola usa su baño privado; Lautaro y Caterina comparten el otro.
+paola usa bano_paola.
+lautaro usa bano_compartido.
+caterina usa bano_compartido.
+
+# Zuri es el perro de Lautaro.
+zuri mascota_de lautaro.
+
+# El vecino, Ramón, vive en su propia casa con tres mascotas:
+# dos gatos (el gris y el blanco) y el perro Bobby. No viven con Lautaro.
+ramon vive_en casa_vecino.
+gato_gris mascota_de ramon.
+gato_blanco mascota_de ramon.
+bobby mascota_de ramon.
