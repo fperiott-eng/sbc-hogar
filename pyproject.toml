@@ -1,0 +1,11 @@
+[project]
+name = "sbc"
+version = "0.1.0"
+description = "Base de conocimiento individual: la casa de Lautaro"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.5.0",
+    "loguru>=0.7.3",
+    "pyparsing>=3.3.3",
+]
