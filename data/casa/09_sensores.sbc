@@ -1,0 +1,39 @@
+# Casa de Lautaro: sensores y políticas de prioridad.
+#
+# Los sensores son el inventario (qué miden y dónde). Sus LECTURAS son
+# dinámicas (presencia, temperatura baja, humo...) y se introducen en los
+# escenarios del script, no aquí.
+#
+# Las políticas son estáticas: dicen qué objetivo gana cuando dos entran en
+# conflicto. Las reglas de 10_reglas.sbc las usan para emitir un veredicto.
+
+# --- Sensores de presencia ---
+sensor_pres_salon mide presencia.
+sensor_pres_salon esta_en salon.
+sensor_pres_cocina mide presencia.
+sensor_pres_cocina esta_en cocina.
+sensor_pres_dorm_lautaro mide presencia.
+sensor_pres_dorm_lautaro esta_en dormitorio_lautaro.
+sensor_pres_dorm_paola mide presencia.
+sensor_pres_dorm_paola esta_en dormitorio_paola.
+sensor_pres_dorm_caterina mide presencia.
+sensor_pres_dorm_caterina esta_en dormitorio_caterina.
+
+# --- Sensores de temperatura ---
+sensor_temp_salon mide temperatura.
+sensor_temp_salon esta_en salon.
+sensor_temp_dorm_lautaro mide temperatura.
+sensor_temp_dorm_lautaro esta_en dormitorio_lautaro.
+sensor_temp_dorm_paola mide temperatura.
+sensor_temp_dorm_paola esta_en dormitorio_paola.
+sensor_temp_dorm_caterina mide temperatura.
+sensor_temp_dorm_caterina esta_en dormitorio_caterina.
+
+# --- Sensor de humo ---
+sensor_humo_cocina mide humo.
+sensor_humo_cocina esta_en cocina.
+
+# --- Políticas de prioridad (cómo se resuelve cada conflicto) ---
+politica prioriza descanso_sobre_luz.
+politica prioriza confort_sobre_ahorro.
+politica prioriza seguridad_sobre_ausencia.

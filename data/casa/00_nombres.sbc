@@ -117,3 +117,15 @@ termostato_dorm_paola nombre "Termostato del dormitorio de Paola".
 termostato_dorm_caterina nombre "Termostato del dormitorio de Caterina".
 cerradura_principal nombre "Cerradura de la puerta principal".
 alarma_casa nombre "Alarma de la casa".
+
+# --- Domótica: sensores ---
+sensor_pres_salon nombre "Sensor de presencia del salón".
+sensor_pres_cocina nombre "Sensor de presencia de la cocina".
+sensor_pres_dorm_lautaro nombre "Sensor de presencia del dormitorio de Lautaro".
+sensor_pres_dorm_paola nombre "Sensor de presencia del dormitorio de Paola".
+sensor_pres_dorm_caterina nombre "Sensor de presencia del dormitorio de Caterina".
+sensor_temp_salon nombre "Sensor de temperatura del salón".
+sensor_temp_dorm_lautaro nombre "Sensor de temperatura del dormitorio de Lautaro".
+sensor_temp_dorm_paola nombre "Sensor de temperatura del dormitorio de Paola".
+sensor_temp_dorm_caterina nombre "Sensor de temperatura del dormitorio de Caterina".
+sensor_humo_cocina nombre "Sensor de humo de la cocina".

@@ -175,3 +175,26 @@ termostato_dorm_paola es_un dispositivo.
 termostato_dorm_caterina es_un dispositivo.
 cerradura_principal es_un dispositivo.
 alarma_casa es_un dispositivo.
+
+# --- Domótica: sensores ---
+sensor_pres_salon es_un sensor.
+sensor_pres_cocina es_un sensor.
+sensor_pres_dorm_lautaro es_un sensor.
+sensor_pres_dorm_paola es_un sensor.
+sensor_pres_dorm_caterina es_un sensor.
+sensor_temp_salon es_un sensor.
+sensor_temp_dorm_lautaro es_un sensor.
+sensor_temp_dorm_paola es_un sensor.
+sensor_temp_dorm_caterina es_un sensor.
+sensor_humo_cocina es_un sensor.
+
+sensor_pres_salon es_un dispositivo.
+sensor_pres_cocina es_un dispositivo.
+sensor_pres_dorm_lautaro es_un dispositivo.
+sensor_pres_dorm_paola es_un dispositivo.
+sensor_pres_dorm_caterina es_un dispositivo.
+sensor_temp_salon es_un dispositivo.
+sensor_temp_dorm_lautaro es_un dispositivo.
+sensor_temp_dorm_paola es_un dispositivo.
+sensor_temp_dorm_caterina es_un dispositivo.
+sensor_humo_cocina es_un dispositivo.
