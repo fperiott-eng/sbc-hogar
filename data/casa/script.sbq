@@ -23,3 +23,47 @@ paola madre_de lautaro?
 
 # Consulta sin solución: ningún gato vive en la casa de Lautaro.
 X vive_en casa, X es_un gato?
+
+# ========================================================================
+# Automatización domótica: razonamiento con reglas y 'descubre!'
+# ========================================================================
+
+# Antes de razonar no hay ninguna orden deducida (sale vacía).
+L debe encender?
+
+# --- Escenario nocturno ---
+# Es de noche; Lautaro está en el salón y Caterina en su dormitorio;
+# hace frío en el salón; la casa está en modo ahorro; y Caterina quiere
+# dormir. Introducimos esa información nueva y volvemos a razonar.
+contexto es_noche si.
+lautaro ubicado_en salon.
+caterina ubicado_en dormitorio_caterina.
+salon temperatura_baja si.
+casa modo_ahorro si.
+caterina quiere_dormir si.
+descubre!
+
+# Las mismas consultas, ahora sí, ya deducen la conducta de la casa.
+L debe encender?
+Pe debe bajar?
+H tiene_presencia si?
+
+# Conflicto A: la luz del dormitorio de Caterina debe encenderse (presencia
+# de noche) y a la vez apagarse (quiere dormir). Se detecta y gana el descanso.
+L en_conflicto luz?
+L prioriza descanso?
+
+# Conflicto B: el termostato del salón debe subir (frío con gente) y a la
+# vez apagarse (modo ahorro). Se detecta y gana el confort.
+T en_conflicto clima?
+T prioriza confort?
+
+# Volcamos toda la base por stderr para inspeccionarla.
+imprimir!
+
+# --- Escenario de emergencia ---
+# Cargamos el escenario de humo, que añade información y vuelve a razonar.
+cargar data/casa/escenario_humo.sbq!
+
+# Tras el humo, la casa debe evacuar.
+casa debe evacuar?
