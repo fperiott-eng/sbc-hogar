@@ -1,0 +1,16 @@
+# Escenario de emergencia: el sensor de la cocina detecta humo.
+# Se carga desde script.sbq con 'cargar data/casa/escenario_humo.sbq!'.
+
+# Nueva información: hay humo en la cocina.
+sensor_humo_cocina detecta humo.
+
+# Razonamos de nuevo con la información nueva.
+descubre!
+
+# El protocolo de seguridad debe haberse disparado.
+casa debe evacuar?
+alarma_casa debe sonar?
+cerradura_principal debe abrir?
+
+# Durante la evacuación se encienden todas las luces.
+L debe encender?
