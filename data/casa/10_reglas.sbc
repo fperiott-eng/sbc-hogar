@@ -1,0 +1,45 @@
+# Casa de Lautaro: reglas de razonamiento domótico.
+#
+# Formato de regla:  consecuente <- antecedente.
+# El antecedente es una conjunción de hechos (separados por comas) y las
+# palabras en Mayúscula son variables. Con 'descubre!' el motor aplica estas
+# reglas hacia delante hasta no deducir nada nuevo.
+#
+# Todo se escribe con variables, así que ampliar la casa (otra habitación,
+# otra luz) no obliga a reescribir ninguna regla: basta con añadir los hechos.
+
+# --- Presencia: una habitación tiene presencia si hay alguien en ella ---
+H tiene_presencia si <- P ubicado_en H.
+
+# --- Iluminación nocturna: enciende la luz de una habitación ocupada de noche ---
+L debe encender <- L ilumina H, H tiene_presencia si, contexto es_noche si.
+
+# --- Descanso: apaga la luz del dormitorio de quien quiere dormir ---
+L debe apagar <- L ilumina H, P duerme_en H, P quiere_dormir si.
+
+# --- Persianas: de noche se bajan las persianas de todas las habitaciones ---
+Pe debe bajar <- Pe cubre H, contexto es_noche si.
+
+# --- Confort térmico: sube la calefacción si hay alguien y hace frío ---
+T debe subir <- T climatiza H, H tiene_presencia si, H temperatura_baja si.
+
+# --- Ahorro: en modo ahorro los termostatos se apagan ---
+T debe apagar <- T climatiza H, casa modo_ahorro si.
+
+# --- Seguridad: si un sensor detecta humo, se dispara el protocolo ---
+alarma_casa debe sonar <- S detecta humo.
+casa debe evacuar <- S detecta humo.
+cerradura_principal debe abrir <- S detecta humo.
+casa evacuacion si <- S detecta humo.
+# Durante una evacuación se encienden todas las luces para poder salir.
+L debe encender <- L ilumina H, casa evacuacion si.
+
+# --- Conflicto A: iluminación (encender) frente a descanso (apagar) ---
+# Si una misma luz debe encenderse y apagarse a la vez, hay conflicto...
+L en_conflicto luz <- L debe encender, L debe apagar.
+# ...y la política de la casa da prioridad al descanso.
+L prioriza descanso <- L en_conflicto luz, politica prioriza descanso_sobre_luz.
+
+# --- Conflicto B: confort térmico (subir) frente a ahorro (apagar) ---
+T en_conflicto clima <- T debe subir, T debe apagar.
+T prioriza confort <- T en_conflicto clima, politica prioriza confort_sobre_ahorro.
