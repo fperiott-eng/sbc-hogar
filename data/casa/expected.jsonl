@@ -10,3 +10,16 @@
 {"consulta": "X hijo_de paola, X nombre N", "soluciones": [{"X": "lautaro", "N": "\"Lautaro\""}]}
 {"consulta": "paola madre_de lautaro", "soluciones": [{}]}
 {"consulta": "X vive_en casa, X es_un gato", "soluciones": []}
+{"consulta": "L debe encender", "soluciones": []}
+{"consulta": "L debe encender", "soluciones": [{"L": "luz_dorm_caterina"}, {"L": "luz_salon"}]}
+{"consulta": "Pe debe bajar", "soluciones": [{"Pe": "persiana_cocina"}, {"Pe": "persiana_dorm_caterina"}, {"Pe": "persiana_dorm_lautaro"}, {"Pe": "persiana_dorm_paola"}, {"Pe": "persiana_salon"}]}
+{"consulta": "H tiene_presencia si", "soluciones": [{"H": "dormitorio_caterina"}, {"H": "salon"}]}
+{"consulta": "L en_conflicto luz", "soluciones": [{"L": "luz_dorm_caterina"}]}
+{"consulta": "L prioriza descanso", "soluciones": [{"L": "luz_dorm_caterina"}]}
+{"consulta": "T en_conflicto clima", "soluciones": [{"T": "termostato_salon"}]}
+{"consulta": "T prioriza confort", "soluciones": [{"T": "termostato_salon"}]}
+{"consulta": "casa debe evacuar", "soluciones": [{}]}
+{"consulta": "alarma_casa debe sonar", "soluciones": [{}]}
+{"consulta": "cerradura_principal debe abrir", "soluciones": [{}]}
+{"consulta": "L debe encender", "soluciones": [{"L": "luz_cocina"}, {"L": "luz_dorm_caterina"}, {"L": "luz_dorm_lautaro"}, {"L": "luz_dorm_paola"}, {"L": "luz_salon"}]}
+{"consulta": "casa debe evacuar", "soluciones": [{}]}
