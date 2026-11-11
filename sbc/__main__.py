@@ -1,32 +1,186 @@
 
-from sbc.profesor import cargar_KB, cargar_script, imprimir_jsonl
+from sbc.profesor import cargar_KB, cargar_script, imprimir_jsonl, leer_frases
 from pathlib import Path
+import sys
 import click
+from loguru import logger
 
 @click.command()
 @click.argument("directorio", type=click.Path(exists=True, file_okay=False, path_type=Path))
 @click.argument("ubiscript", required=False, type=click.Path(exists=True, dir_okay=False, path_type=Path))
 @click.option("--jsonl", is_flag=True, help="Imprime las respuestas en formato JSON Lines.")
-
-def main(directorio: Path, ubiscript: Path | None, jsonl: bool):
+@click.option(
+    "-i",
+    "--interactivo",
+    is_flag=True,
+    help="Entra en modo interactivo tras ejecutar el script.",
+)
+def main(directorio: Path, ubiscript: Path | None, jsonl: bool, interactivo: bool):
 
     sbc = cargar_KB(Path(directorio))
-    script = cargar_script(Path(ubiscript))
 
+    # base: índice de hechos por predicado. nombres: término -> nombre legible,
+    # reglas: reglas (consecuente, antecedente) a aplicar.
     base = {}
+    nombres = {}
+    reglas = []
+    for frase in sbc:
+        procesar(frase, base, nombres, reglas, jsonl)
 
-    for dato in sbc:
+    # Si hay script, se ejecutan sus frases.
+    if ubiscript is not None:
+        for frase in cargar_script(Path(ubiscript)):
+            procesar(frase, base, nombres, reglas, jsonl)
 
-        for d in dato[1]:
-            base.setdefault(d[1], set()).add(d)
+    # Sin script se entra en modo interactivo; con -i, además tras el script.
+    if ubiscript is None or interactivo:
+        modo_interactivo(base, nombres, reglas, jsonl)
 
-    # Diccionario término -> nombre legible, para mostrar las respuestas bonitas.
-    # (p. ej. "q716794" -> 'Fëanor'). Solo se usa para imprimir, no para inferir.
-    nombres = {hecho[0]: hecho[2].strip('"') for hecho in base.get("nombre", ())}
 
-    for preg in script:
-        afirmacion, variables = pregunta(preg, base)
-        resultado(preg, afirmacion, variables, nombres, jsonl)
+def anadir_hechos(base, nombres, hechos):
+    'Indexa una lista de hechos en la base (por predicado) y guarda sus nombres.'
+    for hecho in hechos:
+        base.setdefault(hecho[1], set()).add(hecho)
+        if hecho[1] == "nombre":
+            nombres[hecho[0]] = hecho[2].strip('"')
+
+
+def procesar(frase, base, nombres, reglas, jsonl):
+    'Procesa una frase parseada (afirmación, regla, pregunta o comando).'
+    etiqueta = frase[0]
+    if etiqueta == "afirmacion":
+        anadir_hechos(base, nombres, frase[1])
+    elif etiqueta == "regla":
+        reglas.append(frase[1])
+    elif etiqueta == "pregunta":
+        afirmacion, variables = pregunta(frase, base)
+        resultado(frase, afirmacion, variables, nombres, jsonl)
+    elif etiqueta == "comando":
+        ejecutar_comando(frase[1], base, nombres, reglas, jsonl)
+
+
+def descubrir(base, nombres, reglas):
+    'Razonamiento hacia delante: aplica las reglas hasta punto fijo y devuelve cuántos hechos nuevos deduce.'
+    total = 0
+    while True:
+        # Una pasada por todas las reglas, recogiendo lo que se deduce.
+        nuevos = []
+        for consecuente, antecedente in reglas:
+            # El antecedente se resuelve con la misma unificación que una consulta.
+            _, soluciones = pregunta(("pregunta", antecedente), base)
+            for binding in soluciones:
+                for hecho in consecuente:
+                    deducido = tuple(binding.get(t, t) for t in hecho)
+                    if any(es_variable(t) for t in deducido):
+                        continue  # no añadimos hechos con variables libres
+                    if deducido not in base.get(deducido[1], ()):
+                        nuevos.append(deducido)
+
+        # Añadimos los hechos nuevos (sin duplicar). Sin novedades -> punto fijo.
+        anadidos = 0
+        for hecho in nuevos:
+            conjunto = base.setdefault(hecho[1], set())
+            if hecho not in conjunto:
+                conjunto.add(hecho)
+                if hecho[1] == "nombre":
+                    nombres[hecho[0]] = hecho[2].strip('"')
+                anadidos += 1
+
+        total += anadidos
+        if anadidos == 0:
+            break
+
+    logger.info(f"Descubiertos {total} hechos nuevos")
+    return total
+
+
+def ejecutar_comando(palabras, base, nombres, reglas, jsonl):
+    'Ejecuta un comando (frases acabadas en !): descubre, imprimir, cargar.'
+    match palabras:
+        case ["descubre"]:
+            descubrir(base, nombres, reglas)
+        case ["imprimir"]:
+            imprimir_base(base, reglas)
+        case ["cargar", fichero]:
+            for frase in cargar_script(Path(fichero)):
+                procesar(frase, base, nombres, reglas, jsonl)
+        case _:
+            logger.error(f"Comando desconocido: {' '.join(palabras)}!")
+
+
+def imprimir_base(base, reglas):
+    'Imprime todo el conocimiento de la base con el comando imprimir.'
+    for conjunto in base.values():
+        for hecho in sorted(conjunto):
+            print(" ".join(hecho), file=sys.stderr)
+    for consecuente, antecedente in reglas:
+        cons = ", ".join(" ".join(h) for h in consecuente)
+        ante = ", ".join(" ".join(h) for h in antecedente)
+        print(f"{cons} <- {ante}.", file=sys.stderr)
+
+
+def menu_ayuda():
+    'Muestra los comandos disponibles en el modo interactivo.'
+    print("Comandos del modo interactivo:")
+    print("  sujeto predicado objeto.   añade un hecho   (ej: ana madre_de luis.)")
+    print("  consecuente <- antecedente.  añade una regla")
+    print("                             (ej: X abuela_de Z <- X madre_de Y, Y madre_de Z.)")
+    print("  sujeto predicado objeto?   consulta         (ej: X madre_de luis?)")
+    print("                             (las palabras con Mayúscula inicial son variables)")
+    print("  descubre!                  razona hacia delante (deduce hechos nuevos)")
+    print("  imprimir!                  imprime toda la base por stderr")
+    print("  cargar FICHERO!            carga y ejecuta un script")
+    print("  ayuda                      vuelve a mostrar esta ayuda")
+    print("  salir                      termina el programa")
+    print()
+
+
+def modo_interactivo(base, nombres, reglas, jsonl):
+    '''
+    Lee afirmaciones y consultas del usuario, línea a línea, y responde.
+
+    Las afirmaciones se añaden a la base; las consultas se resuelven al momento.
+    Un error de sintaxis no interrumpe la sesión: se avisa y se sigue pidiendo
+    (Ctrl-C cancela la línea; Ctrl-D o una línea vacía con fin de entrada sale).
+    '''
+    try:
+        import readline  # noqa: F401  (edición de línea e historial, si existe)
+    except ImportError:
+        pass
+
+    menu_ayuda()
+
+    while True:
+        try:
+            linea = input("sbc> ")
+        except EOFError:
+            print()
+            break
+        except KeyboardInterrupt:
+            print()
+            continue
+
+        # Ctrl-D (\x04) y Ctrl-Z (\x1a) salen. En Linux/Mac Ctrl-D genera un
+        # EOFError (arriba); en Windows no, y la terminal mete el carácter de
+        # control dentro de la línea, así que aquí también lo reconocemos.
+        if "\x04" in linea or "\x1a" in linea:
+            print()
+            break
+
+        orden = linea.strip().lower()
+
+        # Salir con una orden explícita (más cómodo que Ctrl-D/Ctrl-Z).
+        if orden in ("salir", "exit", "fin", "quit"):
+            break
+
+        # Volver a mostrar el menú de comandos.
+        if orden in ("ayuda", "help"):
+            menu_ayuda()
+            continue
+
+        for frase in leer_frases(linea):
+            procesar(frase, base, nombres, reglas, jsonl)
+
 
 def pregunta(p, base):
     # p[0] es pregunta/afirmación y p[1] es una lista de hechos (cada hecho es una tupla de 3)

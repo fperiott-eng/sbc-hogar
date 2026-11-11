@@ -10,6 +10,11 @@ entre comillas conservan las comillas:
         -> ("pregunta", [("X", "madre_de", "luis")])
     ana dice "hola, mundo".
         -> ("afirmacion", [("ana", "dice", '"hola, mundo"')])
+    X abuelo_de Y <- X padre_de Z, Z padre_de Y.
+        -> ("regla", ([("X", "abuelo_de", "Y")],
+                      [("X", "padre_de", "Z"), ("Z", "padre_de", "Y")]))
+    cargar mas/preguntas.sbq!
+        -> ("comando", ["cargar", "mas/preguntas.sbq"])
 
 Si hay un error de sintaxis se informa por el log y no se devuelve ninguna
 frase de ese fichero (o texto).
@@ -27,6 +32,7 @@ from pyparsing import (
     Suppress,
     Word,
     alphas,
+    printables,
     python_style_comment,
 )
 
@@ -40,7 +46,7 @@ _hecho.set_parse_action(lambda t: [tuple(t)])
 
 _lista_hechos = Group(DelimitedList(_hecho, ","), aslist=True)
 
-# Una afirmación es una lista de hechos acabada en un punto
+# Una afirmación de hechos es una lista de hechos acabada en un punto
 _afirmacion = _lista_hechos + Suppress(".")
 _afirmacion.set_parse_action(lambda t: [("afirmacion", t[0])])
 
@@ -48,11 +54,20 @@ _afirmacion.set_parse_action(lambda t: [("afirmacion", t[0])])
 _pregunta = _lista_hechos + Suppress("?")
 _pregunta.set_parse_action(lambda t: [("pregunta", t[0])])
 
-# Una base de conocimiento contiene afirmaciones
-_kb = _afirmacion * ...
+# Una afirmación de regla es condicional: consecuente <- antecedente.
+_regla = _lista_hechos + Suppress("<-") + _lista_hechos + Suppress(".")
+_regla.set_parse_action(lambda t: [("regla", (t[0], t[1]))])
 
-# Un script puede contener además preguntas
-_linea = _pregunta | _afirmacion
+# Un comando es una palabra seguida de sus argumentos (p. ej. rutas de fichero),
+# acabado en exclamación
+_comando = Word(alphas) + Word(printables, exclude_chars="!") * ... + Suppress("!")
+_comando.set_parse_action(lambda t: [("comando", list(t))])
+
+# Una base de conocimiento contiene afirmaciones
+_kb = (_afirmacion | _regla) * ...
+
+# Un script puede contener además preguntas y comandos
+_linea = _pregunta | _afirmacion | _regla | _comando
 _script = _linea * ...
 
 # Comentarios estilo python, que van desde # hasta el final de la línea
@@ -66,18 +81,20 @@ def _cargar(gramatica, fichero: Path):
         yield from gramatica.parse_file(fichero, parse_all=True)
     except ParseException as e:
         logger.error(f"Error de sintaxis en {fichero}: {e}")
+    except OSError as e:
+        logger.error(f"No se pudo leer {fichero}: {e}")
 
 
 def cargar_KB(directorio: Path):
     """Devuelve las frases de todos los `*.sbc` de `directorio`, por orden
-    alfabético de fichero. Solo admite afirmaciones."""
+    alfabético de fichero. Solo admite afirmaciones (de hechos y de reglas)."""
     for p in sorted(directorio.glob("*.sbc")):
         yield from _cargar(_kb, p)
 
 
 def cargar_script(fichero: Path):
     """Devuelve las frases de un script `.sbq`, que puede contener
-    afirmaciones y preguntas."""
+    afirmaciones, preguntas y comandos."""
     yield from _cargar(_script, fichero)
 
 
@@ -85,8 +102,8 @@ def leer_frases(texto: str):
     """Como `cargar_script`, pero leyendo de una cadena (p. ej. una línea
     escrita por el usuario).
 
-    >>> list(leer_frases("ana madre_de luis. X madre_de luis?"))
-    [('afirmacion', [('ana', 'madre_de', 'luis')]), ('pregunta', [('X', 'madre_de', 'luis')])]
+    >>> list(leer_frases("ana madre_de luis. X madre_de luis? descubre!"))
+    [('afirmacion', [('ana', 'madre_de', 'luis')]), ('pregunta', [('X', 'madre_de', 'luis')]), ('comando', ['descubre'])]
     """
     try:
         yield from _script.parse_string(texto, parse_all=True)
