@@ -140,3 +140,38 @@ ducharse es_un accion.
 
 # --- Otros ---
 pared_trasera es_un objeto.
+
+# --- Domótica: dispositivos ---
+luz_salon es_un luz.
+luz_cocina es_un luz.
+luz_dorm_lautaro es_un luz.
+luz_dorm_paola es_un luz.
+luz_dorm_caterina es_un luz.
+persiana_salon es_un persiana.
+persiana_cocina es_un persiana.
+persiana_dorm_lautaro es_un persiana.
+persiana_dorm_paola es_un persiana.
+persiana_dorm_caterina es_un persiana.
+termostato_salon es_un termostato.
+termostato_dorm_lautaro es_un termostato.
+termostato_dorm_paola es_un termostato.
+termostato_dorm_caterina es_un termostato.
+cerradura_principal es_un cerradura.
+alarma_casa es_un alarma.
+
+luz_salon es_un dispositivo.
+luz_cocina es_un dispositivo.
+luz_dorm_lautaro es_un dispositivo.
+luz_dorm_paola es_un dispositivo.
+luz_dorm_caterina es_un dispositivo.
+persiana_salon es_un dispositivo.
+persiana_cocina es_un dispositivo.
+persiana_dorm_lautaro es_un dispositivo.
+persiana_dorm_paola es_un dispositivo.
+persiana_dorm_caterina es_un dispositivo.
+termostato_salon es_un dispositivo.
+termostato_dorm_lautaro es_un dispositivo.
+termostato_dorm_paola es_un dispositivo.
+termostato_dorm_caterina es_un dispositivo.
+cerradura_principal es_un dispositivo.
+alarma_casa es_un dispositivo.

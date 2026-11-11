@@ -1,0 +1,30 @@
+# Casa de Lautaro: dispositivos domóticos y qué elemento controla cada uno.
+#
+# Cada dispositivo se relaciona con la habitación (o la casa) sobre la que
+# actúa mediante un predicado propio: ilumina, cubre, climatiza, protege,
+# vigila. Las reglas de 10_reglas.sbc usan estos predicados con variables,
+# así que añadir un dispositivo nuevo no obliga a tocar las reglas.
+
+# --- Luces (ilumina una habitación) ---
+luz_salon ilumina salon.
+luz_cocina ilumina cocina.
+luz_dorm_lautaro ilumina dormitorio_lautaro.
+luz_dorm_paola ilumina dormitorio_paola.
+luz_dorm_caterina ilumina dormitorio_caterina.
+
+# --- Persianas (cubren una habitación) ---
+persiana_salon cubre salon.
+persiana_cocina cubre cocina.
+persiana_dorm_lautaro cubre dormitorio_lautaro.
+persiana_dorm_paola cubre dormitorio_paola.
+persiana_dorm_caterina cubre dormitorio_caterina.
+
+# --- Termostatos (climatizan una habitación) ---
+termostato_salon climatiza salon.
+termostato_dorm_lautaro climatiza dormitorio_lautaro.
+termostato_dorm_paola climatiza dormitorio_paola.
+termostato_dorm_caterina climatiza dormitorio_caterina.
+
+# --- Seguridad (protegen o vigilan la casa) ---
+cerradura_principal protege casa.
+alarma_casa vigila casa.

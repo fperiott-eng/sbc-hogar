@@ -99,3 +99,21 @@ ducharse nombre "Ducharse".
 
 # --- Otros ---
 pared_trasera nombre "Pared trasera".
+
+# --- Domótica: dispositivos ---
+luz_salon nombre "Luz del salón".
+luz_cocina nombre "Luz de la cocina".
+luz_dorm_lautaro nombre "Luz del dormitorio de Lautaro".
+luz_dorm_paola nombre "Luz del dormitorio de Paola".
+luz_dorm_caterina nombre "Luz del dormitorio de Caterina".
+persiana_salon nombre "Persiana del salón".
+persiana_cocina nombre "Persiana de la cocina".
+persiana_dorm_lautaro nombre "Persiana del dormitorio de Lautaro".
+persiana_dorm_paola nombre "Persiana del dormitorio de Paola".
+persiana_dorm_caterina nombre "Persiana del dormitorio de Caterina".
+termostato_salon nombre "Termostato del salón".
+termostato_dorm_lautaro nombre "Termostato del dormitorio de Lautaro".
+termostato_dorm_paola nombre "Termostato del dormitorio de Paola".
+termostato_dorm_caterina nombre "Termostato del dormitorio de Caterina".
+cerradura_principal nombre "Cerradura de la puerta principal".
+alarma_casa nombre "Alarma de la casa".
